@@ -4,14 +4,15 @@ import {
   SafeAreaView,Text
   
 } from 'react-native';
-import Register from './src/screens/Registeration';
+import Login from './src/screens/Login';
 
 const App = ()  => {
 
   return (
     <SafeAreaView>
       <Text>
-        <Register/>
+        <Login/>
+
       </Text>
 
     </SafeAreaView>

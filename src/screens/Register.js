@@ -1,17 +1,16 @@
 import React from 'react';
 import {
-  SafeAreaView,Text
+  SafeAreaView,Text, Image, StyleSheet
   
 } from 'react-native';
+
 
 
 const Register = ()  => {
 
   return (
     <SafeAreaView>
-      <Text>
-        Register
-      </Text>
+      <Text>sign up</Text>
 
     </SafeAreaView>
   );

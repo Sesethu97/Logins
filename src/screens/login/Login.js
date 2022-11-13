@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, Image, StyleSheet, useWindowDimensions, ScrollView} from 'react-native';
-import logo from '../../assets/images/logo.png';
 import UserInput from '../../views/UserInput';
 import CustomButton from '../../components/buttons/CustomButton';
+import logo from '../../../assets/images/logo.png';
+import SocialBtns from '../../components/socials/SocialBtns';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -12,15 +13,7 @@ const Login = () => {
   const onloginPress = () => {
     console.warn('Login');
   };
-  const onloginFacebook = () => {
-    console.warn('Faceboook');
-  };
-  const onloginInstagram = () => {
-    console.warn('Instagram');
-  };
-  const onloginGoogle = () => {
-    console.warn('Google');
-  };
+  
   const onForgetPasswordPress = () => {
     console.warn('Forgot Password');
   };
@@ -59,22 +52,8 @@ const Login = () => {
           onPress={onForgetPasswordPress}
           type="TERTIARY"
         />
+        <SocialBtns/>
 
-        <CustomButton
-          text="Login with Faceboook"
-          onPress={onloginFacebook}
-          bgColor="#715d7c"
-        />
-        <CustomButton
-          text="Login with Instagram"
-          onPress={onloginInstagram}
-          bgColor="#715d7c"
-        />
-        <CustomButton
-          text="Login with Google"
-          onPress={onloginGoogle}
-          bgColor="#715d7c"
-        />
         <CustomButton
           text="Don't have an account? Create one"
           onPress={onRegister}

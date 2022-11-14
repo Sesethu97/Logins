@@ -37,6 +37,11 @@ const Login = ({navigation}) => {
           control={control}
   
           placeholder="Username"
+          rules={{required:'Username is required',
+          minLength:{value:6,
+          message:'Username must be at least 6 characters'},
+          maxLength:{value:26,
+            message:'Username should be a max of  26 characters'}}}
         />
         <UserInput
           name='email'

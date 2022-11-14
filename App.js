@@ -6,6 +6,7 @@ import {
 
 import Navigation from './src/components/navigation/Index';
 import Login from './src/screens/login/Login';
+import Welcome from './src/screens/welcome/Welcome';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const App = ()  => {
@@ -13,12 +14,13 @@ const App = ()  => {
   return (
     <SafeAreaView style={styles.root}>
       <Text>
-        <Login/>
+        {/* <Login/> */}
         {/* <Register /> */}
         {/* <ConfirmedEmail/> */}
         {/* <ForgetPassword/> */}
         {/* <NewPassword/> */}
         {/* <Navigation /> */}
+        <Welcome/>
       </Text>
 
     </SafeAreaView>
@@ -30,8 +32,7 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor: '#fff',
     // margin: 10,
-    height: hp('70%'), 
-    width: wp('80%') ,
+    width: '100%',
   },
 });
 

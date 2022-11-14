@@ -32,11 +32,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#093532', 
   },
   
-  // container_SECONDARY: {
-  //   backgroundColor: '#1f1529', 
-  //   borderWidth:2,
+  container_SECONDARY: {
+    backgroundColor: '#1f1529', 
+    borderWidth:2,
+    alignSelf: 'center',
 
-  // },
+  },
 
   text:{
     fontWeight: 'bold',
@@ -44,12 +45,16 @@ const styles = StyleSheet.create({
   },
 
   text_SECONDARY:{
-    color: '#1f1529',
+    color: '#FFFF',
+
 
   },
   text_TERTIARY:{
     fontWeight: 'bold',
     color: '#000000',
+  },
+  text_TERTIARYS:{
+    color: '#FFF',
   }
 
 });

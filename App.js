@@ -1,35 +1,37 @@
-
 import React from 'react';
-import {
-  SafeAreaView,Text, StyleSheet
-} from 'react-native';
-
-import Navigation from './src/components/navigation/Index';
-import Login from './src/screens/login/Login';
+import {StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Welcome from './src/screens/welcome/Welcome';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import Login from './src/screens/login/Login';
+import Register from './src/screens/register/Register';
+import ConfirmedEmail from './src/screens/confirmedEmail/ConfirmedEmail';
+import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
+import NewPassword from './src/screens/newPassword/NewPassword';
 
-const App = ()  => {
+const Stack = createNativeStackNavigator();
 
+const App = () => {
   return (
-    <SafeAreaView style={styles.root}>
-      <Text>
-        {/* <Login/> */}
-        {/* <Register /> */}
-        {/* <ConfirmedEmail/> */}
-        {/* <ForgetPassword/> */}
-        {/* <NewPassword/> */}
-        {/* <Navigation /> */}
-        <Welcome/>
-      </Text>
-
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="ConfirmEmail" component={ConfirmedEmail} />
+        <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
+        <Stack.Screen name="NewPassword" component={NewPassword} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
   root: {
-    flex:1,
+    flex: 1,
     backgroundColor: '#fff',
     // margin: 10,
     width: '100%',

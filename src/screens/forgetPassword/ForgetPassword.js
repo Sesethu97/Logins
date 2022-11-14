@@ -3,22 +3,21 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import UserInput from '../../views/UserInput';
 import CustomButton from '../../components/buttons/CustomButton';
 
-const ForgetPassword = () => {
+const ForgetPassword = ({navigation}) => {
   const [username, setUsername] = useState('');
 
   
 
-  const onResendPress = () => {
-    console.warn('Resend Password');
-  };
+ 
 
   const onSendPress = () => {
-    console.warn('Confirm Password');
+
+    navigation.navigate('NewPassword');
   };
 
 
   const onLoginPress = () => {
-    console.warn('Login');
+    navigation.navigate('Login');
   };
 
 
@@ -37,15 +36,14 @@ const ForgetPassword = () => {
         <CustomButton text="Send" onPress={onSendPress} />
 
 
-        <CustomButton
-          text="Resend Code"
-          onPress={onResendPress}
-          type="SECONDARY"
-        />
+       
+    
         <CustomButton
           text="Back to Login"
           onPress={onLoginPress}
-          type="SECONDARY"
+          type="TERTIARY"
+
+        
         />
 
 

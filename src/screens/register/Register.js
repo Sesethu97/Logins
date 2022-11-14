@@ -3,19 +3,21 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import UserInput from '../../views/UserInput';
 import CustomButton from '../../components/buttons/CustomButton';
 import SocialBtns from '../../components/socials/SocialBtns';
-const Login = () => {
+import { Navigation } from '@mui/icons-material';
+const Login = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
 
   const onRegisterPress = () => {
-    console.warn('Register');
-  };
-  
-  const onLoginPress = () => {
-    console.warn('Login');
-  };
+    navigation.navigate("ConfirmEmail");
+
+    };
+    
+    const onLoginPress = () => {
+      navigation.navigate("Login");
+    };
   
 
 

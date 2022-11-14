@@ -4,21 +4,21 @@ import UserInput from '../../views/UserInput';
 import CustomButton from '../../components/buttons/CustomButton';
 import SocialBtns from '../../components/socials/SocialBtns';
 
-const ConfirmedEmail = () => {
+const ConfirmedEmail = ({navigation}) => {
   const [code, setCode] = useState('');
 
   
 
   const onResendPress = () => {
-    console.warn('Resend Password');
+    navigation.navigate('Resend Password');
   };
 
   const onConfirmPress = () => {
-    console.warn('Confirm Password');
+    navigation.navigate('Welcome');
   };
 
   const onLoginPress = () => {
-    console.warn('Login');
+    navigation.navigate('Login');
   };
   
 
@@ -34,7 +34,7 @@ const ConfirmedEmail = () => {
         <CustomButton text="Confirm" onPress={onConfirmPress} />
 
 
-        <SocialBtns />
+      
         <CustomButton
           text="Resend Code"
           onPress={onResendPress}

@@ -6,12 +6,12 @@ import {
 } from 'react-native-responsive-screen';
 import CustomButton from '../../components/buttons/CustomButton';
 
-const Welcome = () => {
+const Welcome = ({navigation}) => {
   const onSignupPress = () => {
-    console.warn('Register');
+    navigation.navigate('Register');
   };
   const onLoginPress = () => {
-    console.warn('Login');
+    navigation.navigate('Login');
   };
 
   return (
@@ -19,8 +19,11 @@ const Welcome = () => {
       <View />
       <View>
         <Text style={styles.text}>Lets get started...</Text>
-        <CustomButton text="Join Now" onPress={onSignupPress}
-        type="SECONDARY" />
+        <CustomButton
+          text="Join Now"
+          onPress={onSignupPress}
+          type="SECONDARY"
+        />
         <CustomButton
           text="Already have an account? Login"
           onPress={onLoginPress}
@@ -33,7 +36,7 @@ const Welcome = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     flexDirection: 'column',
     backgroundColor: '#1b052e',
     height: hp('98%'),

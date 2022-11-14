@@ -3,21 +3,19 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import UserInput from '../../views/UserInput';
 import CustomButton from '../../components/buttons/CustomButton';
 
-const NewPassword = () => {
+const NewPassword = ({navigation}) => {
   const [code, setCode] = useState('');
   const [newPassword, setNewPassword] = useState('');
 
   const onLoginPress = () => {
-    console.warn('Login');
+    navigation.navigate('Login');
   };
 
   const onSubmitPress = () => {
-    console.warn('Resend Password');
+    navigation.navigate('Welcome');
+    
   };
 
-  const onSendPress = () => {
-    console.warn('Confirm Password');
-  };
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -25,19 +23,16 @@ const NewPassword = () => {
         <Text style={styles.title}>Reset your password</Text>
 
         <UserInput placeholder="Code" value={code} setValue={setCode} />
+        <UserInput placeholder="newPassword" value={newPassword} setValue={setNewPassword} />
 
-        <CustomButton text="Code" value={code} setValue={setCode} />
-        <CustomButton
-          text="Enter your new password"
-          value={newPassword}
-          setValue={setNewPassword}
-        />
+
 
         <CustomButton text="Submit" onPress={onSubmitPress} />
         <CustomButton
           text="Back to Login"
           onPress={onLoginPress}
-          type="SECONDARY"
+          type="TERTIARY"
+
         />
       </View>
     </ScrollView>

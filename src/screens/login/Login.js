@@ -10,22 +10,21 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const {height} = useWindowDimensions();
 
   const onloginPress = () => {
-    console.warn('Login');
-    Navigation.navigate('Welcome')
+    navigation.navigate('Welcome')
   };
   
   const onForgetPasswordPress = () => {
-    console.warn('Forgot Password');
+    navigation.navigate('ForgetPassword');
   };
 
   const onRegister = () => {
-    console.warn('Create Account');
+    navigation.navigate('Register');
   };
 
   return (

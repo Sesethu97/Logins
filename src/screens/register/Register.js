@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import UserInput from '../../views/UserInput';
+import UserInput from '../../components/inputs/UserInput';
 import CustomButton from '../../components/buttons/CustomButton';
 import SocialBtns from '../../components/socials/SocialBtns';
-import { Navigation } from '@mui/icons-material';
+import {useForm} from 'react-hook-form'
+
 const Login = ({navigation}) => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordRepeat, setPasswordRepeat] = useState('');
+  const {control, handleSubmit, formState:{errors}} = useForm();
 
   const onRegisterPress = () => {
     navigation.navigate("ConfirmEmail");
@@ -35,29 +33,33 @@ const Login = ({navigation}) => {
         <Text style={styles.title}>Creat an account</Text>
 
         <UserInput
+          name='username'
+          control={control}
+  
           placeholder="Username"
-          value={username}
-          setValue={setUsername}
         />
         <UserInput
+          name='email'
+          control={control}
+  
           placeholder="Email"
-          value={email}
-          setValue={setEmail}
         />
         <UserInput
+        name ='password'
           placeholder="Password"
-          value={password}
-          setValue={setPassword}
+          control={control}
+
           secureTextEntry={true}
         />
          <UserInput
+                   name="repeat-password"
+
           placeholder="Repeat Password"
-          value={passwordRepeat}
-          setValue={setPasswordRepeat}
+          control={control}
           secureTextEntry={true}
         />
 
-        <CustomButton text="Register" onPress={onRegisterPress} />
+        <CustomButton text="Register" onPress={handleSubmit(onRegisterPress)} />
 
         <Text style={styles.text}>
             By registering with us, it means that you accept our 

@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import UserInput from '../../views/UserInput';
+import UserInput from '../../components/inputs/UserInput';
 import CustomButton from '../../components/buttons/CustomButton';
-import SocialBtns from '../../components/socials/SocialBtns';
 
 const ConfirmedEmail = ({navigation}) => {
   const [code, setCode] = useState('');

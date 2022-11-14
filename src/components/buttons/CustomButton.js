@@ -1,6 +1,9 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+
+
+
 const CustomButton = ({onPress, text, type="PRIMARY", bgColor, fgColor}) => {
   return (
     <Pressable onPress={onPress} style={[

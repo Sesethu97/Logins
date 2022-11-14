@@ -1,24 +1,28 @@
 import React, {useState} from 'react';
-import {View, Text, Image, StyleSheet, useWindowDimensions, ScrollView} from 'react-native';
-import UserInput from '../../views/UserInput';
+import {
+  View,
+  Text,
+  TextInput,
+  Image,
+  StyleSheet,
+  useWindowDimensions,
+  ScrollView,
+} from 'react-native';
 import CustomButton from '../../components/buttons/CustomButton';
 import logo from '../../../assets/images/logo.png';
 import SocialBtns from '../../components/socials/SocialBtns';
-import { useNavigation } from '@react-navigation/native';
-import { Navigation } from '@react-navigation/native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
-
+import UserInput from '../../components/inputs/UserInput';
+import {useForm, Controller} from 'react-hook-form';
 
 const Login = ({navigation}) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const {height} = useWindowDimensions();
 
-  const onloginPress = () => {
-    navigation.navigate('Welcome')
+  const {control, handleSubmit, formState:{errors}} = useForm();
+
+  const onloginPress = data => {
+    navigation.navigate('Welcome');
   };
-  
+
   const onForgetPasswordPress = () => {
     navigation.navigate('ForgetPassword');
   };
@@ -36,34 +40,42 @@ const Login = ({navigation}) => {
           style={[styles.logo, {height: height * 0.3}]}
           resizeMode="contain"
         />
-
+        
         <UserInput
+          name="username"
+
           placeholder="Username"
-          value={username}
-          setValue={setUsername}
+          control={control}
+          rules={{required: 'Username is required'}}
+          
         />
         <UserInput
+          name="passwword"
+
           placeholder="Password"
-          value={password}
-          setValue={setPassword}
+          control={control}
           secureTextEntry={true}
+          rules={{required: 'Password is required',minLength:{
+            value:6, message:'Passsword must be at least 6 characters'
+          }}}
+
         />
 
-        <CustomButton text="Login" 
-        onPress={onloginPress} />
+
+
+        <CustomButton text="Login" onPress={handleSubmit(onloginPress)} />
 
         <CustomButton
           text="Forget Password?"
           onPress={onForgetPasswordPress}
           type="TERTIARY"
         />
-        <SocialBtns/>
+        <SocialBtns />
 
         <CustomButton
           text="Don't have an account? Create one"
           onPress={onRegister}
           type="TERTIARY"
-
         />
       </View>
     </ScrollView>
@@ -79,7 +91,6 @@ const styles = StyleSheet.create({
   logo: {
     maxHeight: 200,
     maxWidth: 300,
-    
   },
   title: {
     fontSize: 24,

@@ -13,13 +13,12 @@ const Login = () => {
     console.warn('Register');
   };
   
-  const onForgetPasswordPress = () => {
-    console.warn('Forgot Password');
+  const onLoginPress = () => {
+    console.warn('Login');
   };
+  
 
-  const onRegister = () => {
-    console.warn('Create Account');
-  };
+
   const onTermsOfUsePressed = () => {
     console.warn('onTermsOfUsePressed');
     // Addlink to page
@@ -64,12 +63,10 @@ const Login = () => {
             <Text style={styles.link} onPress={onPrivacyPressed}>Privacy Policy</Text>
         </Text>
         <SocialBtns/>
+        <CustomButton text="Have an account? Login"
+        onPress={onLoginPress}
+        type="TERTIARY"/>
         
-        <CustomButton
-          text="Don't have an account? Create one"
-          onPress={onRegister}
-          type="TERTIARY"
-        />
       </View>
     </ScrollView>
   );
@@ -77,6 +74,7 @@ const Login = () => {
 
 const styles = StyleSheet.create({
   root: {
+    flex: 1,
     alignItems: 'center',
     padding: 20,
   },
@@ -86,11 +84,6 @@ const styles = StyleSheet.create({
   },
   link: {
     color: '##31144b'
-  },
-  logo: {
-    width: 100,
-    maxHeight: 200,
-    maxWidth: 300,
   },
   title: {
     fontSize: 24,

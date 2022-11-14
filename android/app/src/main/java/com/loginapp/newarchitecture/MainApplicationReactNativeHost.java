@@ -1,4 +1,4 @@
-package com.logins.newarchitecture;
+package com.loginapp.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.logins.BuildConfig;
-import com.logins.newarchitecture.components.MainComponentsRegistry;
-import com.logins.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.loginapp.BuildConfig;
+import com.loginapp.newarchitecture.components.MainComponentsRegistry;
+import com.loginapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

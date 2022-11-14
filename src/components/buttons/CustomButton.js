@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react';
-
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 const CustomButton = ({onPress, text, type="PRIMARY", bgColor, fgColor}) => {
   return (
     <Pressable onPress={onPress} style={[
@@ -16,26 +16,36 @@ const CustomButton = ({onPress, text, type="PRIMARY", bgColor, fgColor}) => {
 };
 const styles = StyleSheet.create({
   container:{
-    width: '100%',
+    width: wp('90%') ,
     padding: 15,
     marginVertical: 5,
     alignItems: 'center',
     borderRadius: 5,
 
   },
+
   container_PRIMARY:{
     backgroundColor: '#0e0014', 
-
-
   },
+
   container_TERITARY:{
     backgroundColor: '#093532', 
-
-
   },
+  
+  // container_SECONDARY: {
+  //   backgroundColor: '#1f1529', 
+  //   borderWidth:2,
+
+  // },
+
   text:{
     fontWeight: 'bold',
     color: '#FFFFFF',
+  },
+
+  text_SECONDARY:{
+    color: '#1f1529',
+
   },
   text_TERTIARY:{
     fontWeight: 'bold',

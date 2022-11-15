@@ -41,10 +41,21 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
 
   },
+  container_SECONDARYS: {
+    backgroundColor: '#fff', 
+    borderWidth:2,
+    alignSelf: 'center',
+
+  },
 
   text:{
     fontWeight: 'bold',
     color: '#FFFFFF',
+  },
+
+  text_SECONDARYS:{
+    color: '#1b052e',
+
   },
 
   text_SECONDARY:{

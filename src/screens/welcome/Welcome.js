@@ -22,7 +22,7 @@ const Welcome = ({navigation}) => {
         <CustomButton
           text="Join Now"
           onPress={onSignupPress}
-          type="SECONDARY"
+          type="SECONDARYS"
         />
         <CustomButton
           text="Already have an account? Login"

@@ -2,37 +2,52 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import CustomButton from '../../components/buttons/CustomButton';
 import UserInput from '../../components/inputs/UserInput';
+import {useForm} from 'react-hook-form';
 
 const NewPassword = ({navigation}) => {
-  const [code, setCode] = useState('');
-  const [newPassword, setNewPassword] = useState('');
+  const {control, handleSubmit} = useForm();
 
-  const onLoginPress = () => {
+  const onLoginPress = data => {
     navigation.navigate('Login');
   };
 
   const onSubmitPress = () => {
     navigation.navigate('Welcome');
-    
   };
-
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.root}>
         <Text style={styles.title}>Reset your password</Text>
 
-        <UserInput placeholder="Code" value={code} setValue={setCode} />
-        <UserInput placeholder="newPassword" value={newPassword} setValue={setNewPassword} />
+        <UserInput
+          name="code"
+          control={control}
+          placeholder="Please enter your confirmation code"
+          rules={{required: 'Confirmation code is required'}}
+        />
+        <UserInput
+          name="new-password"
+          control={control}
+          placeholder="Please enter new Password"
+          rules={{
+            required: 'Password is required',
+            minLength: {
+              value: 6,
+              message: 'Password must be at least 6 characters',
+            },
+            maxLength: {
+              value: 26,
+              message: 'Password should be a max of  26 characters',
+            },
+          }}
+        />
 
-
-
-        <CustomButton text="Submit" onPress={onSubmitPress} />
+        <CustomButton text="Submit" onPress={handleSubmit(onSubmitPress)} />
         <CustomButton
           text="Back to Login"
           onPress={onLoginPress}
           type="TERTIARY"
-
         />
       </View>
     </ScrollView>

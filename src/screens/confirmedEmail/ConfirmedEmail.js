@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import UserInput from '../../components/inputs/UserInput';
 import CustomButton from '../../components/buttons/CustomButton';
-
+import {useForm} from 'react-hook-form'
 const ConfirmedEmail = ({navigation}) => {
-  const [code, setCode] = useState('');
+  const {control, handleSubmit} = useForm();
 
   
 
-  const onResendPress = () => {
+  const onResendPress = (data) => {
     navigation.navigate('Resend Password');
   };
 
@@ -26,11 +26,15 @@ const ConfirmedEmail = ({navigation}) => {
       <View style={styles.root}>
         <Text style={styles.title}>Confirm your email</Text>
 
-        <UserInput placeholder="Code" value={code} setValue={setCode} />
-        <UserInput placeholder="Enter your confirmation code" value={code} setValue={setCode} />
+        <UserInput name="code"
+         control={control}
+         placeholder='Please enter your confirmation code'
+         rules={{required:'Confirmation code is required'}}
+         />
+        {/* <UserInput placeholder="Enter your confirmation code" value={code} setValue={setCode} /> */}
 
         
-        <CustomButton text="Confirm" onPress={onConfirmPress} />
+        <CustomButton text="Confirm" onPress={handleSubmit(onConfirmPress)} />
 
 
       

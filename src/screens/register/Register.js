@@ -4,10 +4,16 @@ import UserInput from '../../components/inputs/UserInput';
 import CustomButton from '../../components/buttons/CustomButton';
 import SocialBtns from '../../components/socials/SocialBtns';
 import {useForm} from 'react-hook-form'
+import { validate } from 'uuid';
+
+
+
+const Email_Regex =
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 const Login = ({navigation}) => {
-  const {control, handleSubmit, formState:{errors}} = useForm();
-
+  const {control, handleSubmit, watch} = useForm();
+  const passwrd = watch('password');
   const onRegisterPress = () => {
     navigation.navigate("ConfirmEmail");
 
@@ -39,15 +45,17 @@ const Login = ({navigation}) => {
           placeholder="Username"
           rules={{required:'Username is required',
           minLength:{value:6,
-          message:'Username must be at least 6 characters'},
-          maxLength:{value:26,
-            message:'Username should be a max of  26 characters'}}}
+            message:'Username must be at least 6 characters'},
+            maxLength:{value:26,
+              message:'Username should be a max of  26 characters'},}}
+          
         />
         <UserInput
           name='email'
           control={control}
   
           placeholder="Email"
+          rules={{pattern:{value:Email_Regex, message:'Invalid Email'}}}
         />
         <UserInput
         name ='password'
@@ -55,6 +63,11 @@ const Login = ({navigation}) => {
           control={control}
 
           secureTextEntry={true}
+          rules={{required:'Password is required',
+          minLength:{value:6,
+            message:'Password must be at least 6 characters'},
+            maxLength:{value:26,
+              message:'Password should be a max of  26 characters'},}}
         />
          <UserInput
                    name="repeat-password"
@@ -62,6 +75,8 @@ const Login = ({navigation}) => {
           placeholder="Repeat Password"
           control={control}
           secureTextEntry={true}
+          rules={{validate: value => value = passwrd || 'Password do not match'}}
+          
         />
 
         <CustomButton text="Register" onPress={handleSubmit(onRegisterPress)} />

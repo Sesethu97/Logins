@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import CustomButton from '../../components/buttons/CustomButton';
 import UserInput from '../../components/inputs/UserInput';
+import {useForm} from 'react-hook-form'
 
 
 const ForgetPassword = ({navigation}) => {
-  const [username, setUsername] = useState('');
+  const {control, handleSubmit} = useForm();
 
-  const onSendPress = () => {
+  const onSendPress = (data) => {
     navigation.navigate('NewPassword');
   };
 
@@ -21,12 +22,20 @@ const ForgetPassword = ({navigation}) => {
         <Text style={styles.title}>Reset your password</Text>
 
         <UserInput
+        name="username"
+          control={control}
+
           placeholder="Username"
-          value={username}
-          setValue={setUsername}
+          rules={{required:'Username is required',
+          minLength:{value:6,
+            message:'Username must be at least 6 characters'},
+            maxLength:{value:26,
+              message:'Username should be a max of  26 characters'},}}
+          
+      
         />
 
-        <CustomButton text="Send" onPress={onSendPress} />
+        <CustomButton text="Send" onPress={handleSubmit(onSendPress)} />
 
         <CustomButton
           text="Back to Login"

@@ -57,7 +57,8 @@ const Login = ({navigation}) => {
           secureTextEntry={true}
           rules={{required: 'Password is required',minLength:{
             value:6, message:'Passsword must be at least 6 characters'
-          }}}
+
+          },}}
 
         />
 
